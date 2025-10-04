@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Experiments - OpenBio Cosmos</title>
+    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="stylesheet" href="/src/components/navbar.css" />
+    <style>
+      .experiments-container {
+        max-width: 1000px;
+        margin: 2rem auto;
+        padding: 1rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 1rem;
+      }
+
+      .experiment-card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        padding: 1rem;
+        transition: transform 0.2s;
+      }
+
+      .experiment-card:hover {
+        transform: translateY(-4px);
+      }
+
+      .experiment-title {
+        font-size: 1.1rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+      }
+
+      .experiment-meta {
+        font-size: 0.9rem;
+        color: #555;
+        margin-bottom: 0.5rem;
+      }
+
+      .experiment-section {
+        font-size: 0.85rem;
+        margin-top: 0.25rem;
+      }
+
+      .experiment-section strong {
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar"></div>
+    <main>
+      <h1 style="text-align:center; margin-top:1rem;">Experiments</h1>
+      <div class="experiments-container" id="experiments-list"></div>
+    </main>
+    <script type="module" src="/src/experiments.js"></script>
+  </body>
+</html>

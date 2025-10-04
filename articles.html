@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Articles</title>
+  <link rel="stylesheet" href="/src/style.css" />
+  <link rel="stylesheet" href="/src/components/navbar.css" />
+  <style>
+    html, body {
+      height: 100%;
+      overflow-y: auto;
+    }
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background: #f9fafb;
+      color: #222;
+    }
+
+    main#articles-main {
+      display: grid;
+      grid-template-columns: 1fr 400px; /* Sol panel + sağ panel */
+      gap: 20px;
+      max-width: 1400px;
+      margin: 100px auto;
+      padding: 0 20px;
+    }
+
+    /* Sol panel */
+    #articles-left {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    .filters {
+      margin-bottom: 20px;
+    }
+
+    .filter-header {
+      font-size: 1rem;
+      margin: 0;
+      padding: 10px;
+      background: #f3f4f6;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      cursor: pointer;
+      color: #2563eb;
+    }
+    .filter-header:hover {
+      background: #e5e7eb;
+    }
+
+    .filter-content {
+      display: none;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-top: none;
+      border-radius: 0 0 6px 6px;
+      background: #fff;
+    }
+
+    .filter-section.active .filter-content {
+      display: block;
+    }
+
+    .filters select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .year-range {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .year-range input {
+      flex: 1;
+    }
+    .year-label {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .sort-box {
+      margin-bottom: 20px;
+    }
+    .sort-box select {
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
+
+    .article-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .article-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      padding: 12px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .article-card:hover {
+      background: #f3f4f6;
+    }
+    .article-card h4 {
+      margin: 0;
+      font-size: 1rem;
+      color: #111;
+    }
+    .article-card p {
+      margin: 4px 0 0;
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .pagination button {
+      padding: 8px 14px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      background: #fff;
+      cursor: pointer;
+    }
+    .pagination button:hover {
+      background: #f3f4f6;
+    }
+
+    /* Sağ panel */
+    #visualization-panel {
+      background: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      position: relative;
+    }
+
+    #visualization-panel canvas {
+      margin: 20px 0;
+    }
+
+    #tag-cloud {
+      margin-top: 20px;
+      width: 100%;
+      height: 300px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
+    .viz-section {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+    .viz-header {
+      margin: 0;
+      padding: 10px;
+      background: #f3f4f6;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    .viz-header:hover {
+      background: #e5e7eb;
+    }
+    .viz-content {
+      display: none;
+      padding: 10px;
+    }
+    .viz-section.active .viz-content {
+      display: block;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <main id="articles-main">
+    <!-- Sol panel -->
+    <div id="articles-left">
+      <div class="search-box">
+        <input type="text" id="search" placeholder="Search articles..." />
+      </div>
+
+      <div class="filters">
+        <div class="filter-section">
+          <h3 class="filter-header" data-target="category-filter">Filter by Categories</h3>
+          <div class="filter-content" id="category-filter">
+            <select id="filter-category" multiple></select>
+          </div>
+        </div>
+
+        <div class="filter-section">
+          <h3 class="filter-header" data-target="zone-filter">Filter by Zones</h3>
+          <div class="filter-content" id="zone-filter">
+            <select id="filter-zone" multiple></select>
+          </div>
+        </div>
+
+        <div class="filter-section">
+          <h3 class="filter-header" data-target="year-filter">Filter by Year Range</h3>
+          <div class="filter-content" id="year-filter">
+            <div class="year-range">
+              <span class="year-label" id="year-min-label"></span>
+              <input type="range" id="year-min" />
+              <input type="range" id="year-max" />
+              <span class="year-label" id="year-max-label"></span>
+            </div>
+          </div>
+
+        <div class="filter-section">
+          <h3 class="filter-header" data-target="experiment-filter">Filter by Experiments</h3>
+          <div class="filter-content" id="experiment-filter">
+            <label>
+              <input type="checkbox" id="filter-experiments" />
+              With Experiments
+            </label>
+          </div>
+        </div>
+
+        </div>
+
+        <button id="clear-filters">Clear Filters</button>
+      </div>
+
+      <div class="sort-box">
+        <label for="sort">Sort by: </label>
+        <select id="sort">
+          <option value="year">Year</option>
+          <option value="title">Title</option>
+          <option value="journal">Journal</option>
+        </select>
+      </div>
+
+      <div class="article-list" id="article-list"></div>
+
+      <div class="pagination">
+        <button id="prev-page">Prev</button>
+        <span id="page-info"></span>
+        <button id="next-page">Next</button>
+      </div>
+    </div>
+
+    <!-- Sağ panel -->
+    <div id="visualization-panel">
+      <div id="viz-header-row"
+           style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+        <h3 style="margin:0;">Visualizations</h3>
+        <button id="viz-refresh"
+                style="padding:4px 10px; font-size:0.85rem; border:1px solid #ddd; border-radius:6px; cursor:pointer; background:#fff;">
+          🔄
+        </button>
+      </div>
+
+      <div class="viz-section">
+        <h4 class="viz-header" data-target="bar-chart-container">Bar Chart (Articles per Year)</h4>
+        <div class="viz-content" id="bar-chart-container">
+          <canvas id="bar-chart"></canvas>
+        </div>
+      </div>
+
+      <div class="viz-section">
+        <h4 class="viz-header" data-target="pie-chart-container">Pie Chart (Categories)</h4>
+        <div class="viz-content" id="pie-chart-container">
+          <canvas id="pie-chart"></canvas>
+        </div>
+      </div>
+
+      <div class="viz-section">
+          <h4 class="viz-header" data-target="geo-map-container">Geographic Distribution</h4>
+          <div class="viz-content" id="geo-map-container">
+            <svg id="geo-map" width="360" height="220"></svg>
+          </div>
+        </div>
+        <div class="viz-section">
+          <h4 class="viz-header" data-target="line-chart-container">Trend (Line Chart)</h4>
+          <div class="viz-content" id="line-chart-container">
+            <canvas id="line-chart" width="360" height="220"></canvas>
+          </div>
+        </div>
+
+        <div class="viz-section">
+          <h4 class="viz-header" data-target="stacked-area-container">Category Trends (Stacked Area)</h4>
+          <div class="viz-content" id="stacked-area-container">
+            <canvas id="stacked-area-chart" width="360" height="220"></canvas>
+          </div>
+        </div>
+    </div>
+
+  </main>
+
+  <script type="module" src="/src/articles.js"></script>
+</body>
+</html>

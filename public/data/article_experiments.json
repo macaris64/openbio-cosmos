@@ -1,0 +1,38 @@
+[
+  {
+    "id": 101,
+    "articleId": 1,
+    "title": "Head-Down Tilt Bed Rest with LBNP",
+    "type": "Bed Rest Analog",
+    "duration": "30 days",
+    "subjects": 20,
+    "conditions": ["6° head-down tilt", "lower body negative pressure"],
+    "outcomes": ["fluid shifts", "ocular changes"],
+    "location": "Germany",
+    "year": 2025
+  },
+  {
+    "id": 102,
+    "articleId": 1,
+    "title": "Inspiration4 Short-duration Spaceflight",
+    "type": "Spaceflight",
+    "duration": "3 days",
+    "subjects": 4,
+    "conditions": ["low Earth orbit", "microgravity"],
+    "outcomes": ["gene expression changes", "immune modulation"],
+    "location": "United States",
+    "year": 2021
+  },
+  {
+    "id": 103,
+    "articleId": 31,
+    "title": "Strict Head-Down Tilt + Exercise Countermeasures",
+    "type": "Bed Rest Analog",
+    "duration": "30 days",
+    "subjects": 12,
+    "conditions": ["exercise", "countermeasures"],
+    "outcomes": ["cardiovascular adaptations", "fluid distribution"],
+    "location": "Germany",
+    "year": 2024
+  }
+]

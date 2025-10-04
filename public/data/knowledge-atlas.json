@@ -1,0 +1,9 @@
+[
+  {
+    "name": "Features",
+    "children": [
+      { "id": "wordcloud", "name": "Word Cloud", "type": "feature" },
+      { "id": "geo-overlay", "name": "Geo Overlay", "type": "feature" }
+    ]
+  }
+]

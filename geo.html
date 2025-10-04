@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Geographic Distribution</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+    #map {
+      flex: 3;
+      height: 100%;
+    }
+    #geo-sidebar {
+      flex: 1;
+      border-left: 1px solid #ccc;
+      padding: 10px;
+      overflow-y: auto;
+    }
+    .country-header {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .article-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      background: #fff;
+      transition: all 0.2s ease;
+    }
+
+    .article-card:hover {
+      background: #f8faff;
+      border-color: #0077cc;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .article-title {
+      font-weight: 600;
+      margin-bottom: 6px;
+      font-size: 14px;
+      color: #222;
+    }
+
+    .article-meta {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    .article-link {
+      font-size: 12px;
+      color: #0077cc;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <div id="geo-sidebar">
+    <div class="country-header">Select a country</div>
+    <div id="article-list"></div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script type="module" src="/src/geo.js"></script>
+</body>
+</html>

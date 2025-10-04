@@ -1,0 +1,49 @@
+[
+  {
+    "id": "human",
+    "name": "Human",
+    "children": [
+      {
+        "id": "body",
+        "name": "Human Body",
+        "type": "model",
+        "path": "/low-poly_male_body.glb",
+        "auto_normalize": false,
+        "position": { "x": 0, "y": 0, "z": 0 },
+        "rotation": { "x": 0, "y": 0, "z": 0 }
+      },
+      {
+        "id": "skeleton",
+        "name": "Human Skeleton",
+        "type": "model",
+        "path": "/human_skeleton.glb",
+        "auto_normalize": true,
+        "position": { "x": 0, "y": -0.6, "z": 0 },
+        "rotation": { "x": 0, "y": 0, "z": 0 }
+      },
+      {
+        "id": "brain",
+        "name": "Human Brain",
+        "type": "model",
+        "path": "/human-brain.glb",
+        "auto_normalize": false
+      },
+      {
+        "id": "respiratory",
+        "name": "Respiratory System",
+        "type": "model",
+        "path": "/16_week_fetal_pulmonary_system.glb",
+        "auto_normalize": true
+      },
+      {
+        "id": "circulatory",
+        "name": "Circulatory System",
+        "type": "model",
+        "path": "/cardiovascular100.glb",
+        "auto_normalize": true,
+        "position": { "x": 0, "y": -0.6, "z": 0 },
+        "rotation": { "x": 0, "y": 0, "z": 0 }
+      }
+    ]
+  }
+]

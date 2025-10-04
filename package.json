@@ -1,0 +1,40 @@
+{
+  "name": "openbio-cosmos",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .js,.mjs,.cjs",
+    "lint:fix": "eslint . --ext .js,.mjs,.cjs --fix",
+    "format": "prettier . --write"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "eslint": "^9.36.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-unused-imports": "^4.2.0",
+    "globals": "^16.4.0",
+    "prettier": "^3.6.2",
+    "vite": "^7.1.7"
+  },
+  "dependencies": {
+    "chart.js": "^4.5.0",
+    "d3": "^7.9.0",
+    "d3-cloud": "^1.2.7",
+    "d3-geo": "^3.1.1",
+    "echarts": "^6.0.0",
+    "echarts-countries-js": "^1.0.5",
+    "gsap": "^3.13.0",
+    "leaflet": "^1.9.4",
+    "three": "^0.180.0",
+    "topojson-client": "^3.1.0",
+    "vis-network": "^10.0.2",
+    "world-atlas": "^2.0.2"
+  }
+}

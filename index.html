@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenBio Cosmos</title>
+    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="stylesheet" href="/src/components/navbar.css" />
+    <style>
+      .landing {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 60px); /* navbar dışında */
+        text-align: center;
+        font-family: sans-serif;
+      }
+      .landing h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+      .landing p {
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin-bottom: 2rem;
+      }
+      .landing a {
+        padding: 12px 24px;
+        background: #4fc3f7;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: bold;
+        transition: background 0.2s;
+      }
+      .landing a:hover {
+        background: #0288d1;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar"></div>
+
+    <section class="landing">
+        <div id="landing-canvas"></div>
+        <div class="landing-text">
+            <h1>Welcome to OpenBio Cosmos</h1>
+            <p>
+                Explore space biology datasets in an interactive 3D atlas.
+                Learn how the human body and life adapts to space.
+            </p>
+            <a href="/atlas.html">🚀 Enter Atlas</a>
+        </div>
+    </section>
+
+    <script type="module" src="/src/landing.js"></script>
+    <script type="module">
+      import { createNavbar } from "/src/components/Navbar.js";
+      createNavbar();
+    </script>
+  </body>
+</html>
