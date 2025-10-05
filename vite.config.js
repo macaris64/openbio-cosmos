@@ -5,6 +5,7 @@ export default defineConfig({
   publicDir: "public",
   build: {
     outDir: "dist",
+    chunkSizeWarningLimit: 1000,
     rollupOptions: {
       input: {
         main: "index.html",
@@ -14,7 +15,20 @@ export default defineConfig({
         experiments: "experiments.html",
         geo: "geo.html",
         "knowledge-atlas": "knowledge-atlas.html"
+      },
+      output: {
+        manualChunks: {
+          'three': ['three'],
+          'd3': ['d3'],
+          'chart': ['chart.js'],
+          'vis': ['vis-network']
+        }
       }
+    }
+  },
+  server: {
+    fs: {
+      allow: ['..']
     }
   }
 });
