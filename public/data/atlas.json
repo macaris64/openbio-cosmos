@@ -7,7 +7,7 @@
         "id": "body",
         "name": "Human Body",
         "type": "model",
-        "path": "https://pub-94f13b15108b45f59b10acf5e915538b.r2.dev/low-poly_male_body.glb",
+        "path": "/low-poly_male_body.glb",
         "auto_normalize": false,
         "position": { "x": 0, "y": 0, "z": 0 },
         "rotation": { "x": 0, "y": 0, "z": 0 }
@@ -16,7 +16,7 @@
         "id": "skeleton",
         "name": "Human Skeleton",
         "type": "model",
-        "path": "https://pub-94f13b15108b45f59b10acf5e915538b.r2.dev/human_skeleton.glb",
+        "path": "/human_skeleton.glb",
         "auto_normalize": true,
         "position": { "x": 0, "y": -0.6, "z": 0 },
         "rotation": { "x": 0, "y": 0, "z": 0 }
@@ -25,21 +25,21 @@
         "id": "brain",
         "name": "Human Brain",
         "type": "model",
-        "path": "https://pub-94f13b15108b45f59b10acf5e915538b.r2.dev/human-brain.glb",
+        "path": "/human-brain.glb",
         "auto_normalize": false
       },
       {
         "id": "respiratory",
         "name": "Respiratory System",
         "type": "model",
-        "path": "https://pub-94f13b15108b45f59b10acf5e915538b.r2.dev/16_week_fetal_pulmonary_system.glb",
+        "path": "/16_week_fetal_pulmonary_system.glb",
         "auto_normalize": true
       },
       {
         "id": "circulatory",
         "name": "Circulatory System",
         "type": "model",
-        "path": "https://pub-94f13b15108b45f59b10acf5e915538b.r2.dev/cardiovascular100.glb",
+        "path": "/cardiovascular100.glb",
         "auto_normalize": true,
         "position": { "x": 0, "y": -0.6, "z": 0 },
         "rotation": { "x": 0, "y": 0, "z": 0 }

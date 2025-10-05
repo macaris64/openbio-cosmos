@@ -45,7 +45,7 @@ fetch("./data/output_nih.json")
     articlesData = data;
   });
 
-loadModel("https://pub-94f13b15108b45f59b10acf5e915538b.r2.dev/low-poly_male_body.glb", scene, controls, {
+loadModel("/low-poly_male_body.glb", scene, controls, {
   auto_normalize: false,
   modelId: "body",
   position: { x: 0, y: 0, z: 0 },
