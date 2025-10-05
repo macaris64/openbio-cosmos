@@ -5,6 +5,3 @@ node_modules
 .DS_Store
 .vite
 coverage
-# Büyük 3D modelleri CDN'e taşı
-public/*.glb
-dist/*.glb
