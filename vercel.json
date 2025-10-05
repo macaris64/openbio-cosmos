@@ -6,7 +6,6 @@
     { "source": "/article", "destination": "/article.html" },
     { "source": "/experiments", "destination": "/experiments.html" },
     { "source": "/knowledge-atlas", "destination": "/knowledge-atlas.html" },
-    { "source": "/backend", "destination": "/backend/index.html" },
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [
