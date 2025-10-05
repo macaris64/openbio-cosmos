@@ -1,4 +1,4 @@
-import { createArticleCard } from "./articleCard.js";
+import { createArticleCard } from "./ArticleCard.js";
 
 export function createSidebar() {
   const sidebar = document.createElement("div");
