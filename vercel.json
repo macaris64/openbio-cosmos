@@ -1,0 +1,21 @@
+{
+  "rewrites": [
+    { "source": "/atlas", "destination": "/atlas.html" },
+    { "source": "/geo", "destination": "/geo.html" },
+    { "source": "/articles", "destination": "/articles.html" },
+    { "source": "/article", "destination": "/article.html" },
+    { "source": "/experiments", "destination": "/experiments.html" },
+    { "source": "/knowledge-atlas", "destination": "/knowledge-atlas.html" },
+    { "source": "/backend", "destination": "/backend/index.html" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-cache" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" }
+      ]
+    }
+  ]
+}
